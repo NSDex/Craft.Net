@@ -50,7 +50,6 @@
     <Compile Include="Noise\Generator\ConstNoise.cs" />
     <Compile Include="Noise\Generator\IntegerNoise.cs" />
     <Compile Include="Noise\Generator\PerlinNoise.cs" />
-    <Compile Include="Noise\Generator\VoronoiNoise.cs" />
     <Compile Include="Noise\Generator\SimplexNoise.cs" />
     <Compile Include="Noise\Modifier\FastSmooth3x3.cs" />
     <Compile Include="Noise\Modifier\WoodFilter.cs" />
@@ -61,6 +60,9 @@
     <Compile Include="Noise\Combiner\Add.cs" />
     <Compile Include="Noise\Combiner\Multiply.cs" />
     <Compile Include="Noise\Combiner\Select.cs" />
+    <Compile Include="Noise\Generator\CellNoise.cs" />
+    <Compile Include="Noise\Generator\VoronoiNoise.cs" />
+    <Compile Include="Noise\Transform\Scale.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Craft.Net.Common\Craft.Net.Common.csproj">
@@ -94,5 +96,6 @@
     <Folder Include="Noise\Generator\" />
     <Folder Include="Noise\Modifier\" />
     <Folder Include="Noise\Combiner\" />
+    <Folder Include="Noise\Transform\" />
   </ItemGroup>
 </Project>

@@ -5,7 +5,7 @@ namespace Craft.Net.TerrainGeneration.CoherentNoise.Combiner
     /// <summary>
     /// The multipky function multiplies the result of two noise providers.
     /// </summary>
-    public class Multiply
+    public class Multiply : INoiseProvider
     {
         INoiseProvider left, right;
 
