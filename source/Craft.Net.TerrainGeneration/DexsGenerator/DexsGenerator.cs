@@ -76,12 +76,14 @@ namespace Craft.Net.TerrainGeneration
 		/// </summary>
 		public void Initialize(Level level)
 		{
-            SpawnPoint = new Vector3(0, 129, 0);
+            SpawnPoint = new Vector3(0, 255, 0);
 
             this.noiseSrc = new GradientNoise(new Vector3(0, 0, 0), new Vector3(0, 128, 0));
             this.noiseSrc = new Select(this.noiseSrc, -1, 1, 0);
 
+
             this.noiseSrc = new CellNoise(123456, CellNoise.EuclidianDistanceFunc, CellNoise.InsertShortest, CellNoise.ChooseShortest);
+
 
             INoiseProvider integerNoise = new IntegerNoise((int)this.Seed);
             this.noiseSrc = new VoronoiNoise(new[] { new IntegerNoise((int)this.Seed), new IntegerNoise((int)this.Seed + 1) }, 
@@ -89,18 +91,15 @@ namespace Craft.Net.TerrainGeneration
                 (Vector3 inputPoint, Vector3 cellPoint, double distance) => { return integerNoise.Get2D( (int)Math.Floor(cellPoint.X), (int)Math.Floor(cellPoint.Y) ); });
             this.noiseSrc = new Multiply(new ConstNoise(40), this.noiseSrc);
             this.noiseSrc = new Abs(this.noiseSrc);
-            this.noiseSrc = new Add(new ConstNoise(30), this.noiseSrc);
+            this.noiseSrc = new Add(this.noiseSrc, 30);
             this.noiseSrc = new Scale(this.noiseSrc, new Vector3(1.0/20.0, 1.0/20.0, 1.0/20.0));
 
-            /*
+
 			const double persistence = 1, frequency = 0.01, amplitude = 80;
 			int octaves = 2;
-			//noise = new Noise(persistence, frequency, amplitude, octaves, (int)Seed);
 			noiseSrc = new ValueNoise( new FastSmooth3x3( new IntegerNoise((int)Seed) ), new CosineInterpolator() );
-			noiseSrc = new FBMFilter(noiseSrc, octaves, frequency, amplitude, 2, persistence);
-			noiseSrc = new TranslateFilter( new AbsFilter(noiseSrc), 40 );
-			//noiseSrc = new AbsFilter( new VoronoiNoise((int)Seed, 20, 1.0/100.0, true) );
-			*/
+            noiseSrc = new FractionalBrownianMotion(noiseSrc, octaves, frequency, amplitude, 2, persistence);
+            noiseSrc = new Add( new Abs(noiseSrc), new ConstNoise(40) );
 		}
 	}
 }

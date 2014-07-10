@@ -17,6 +17,7 @@ namespace Craft.Net.TerrainGeneration.CoherentNoise.Modifier
 
 			return source.Get1D(x) / 2 + source.Get1D(x - 1) / 4 + source.Get1D(x + 1) / 4;
 		}
+
 		public double Get2D(double x, double y) 
 		{ 
 			// 4/16 + 4/8 + 1/4 = 1
@@ -29,6 +30,7 @@ namespace Craft.Net.TerrainGeneration.CoherentNoise.Modifier
 			double center = source.Get2D(x, y) / 4;
 			return corners + sides + center;
 		}
+
 		public double Get3D(double x, double y, double z) 
 		{ 
 			// 12/48 + 8/32 + 6/16 + 1/8 = 1

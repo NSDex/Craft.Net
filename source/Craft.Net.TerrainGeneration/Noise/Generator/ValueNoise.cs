@@ -29,6 +29,7 @@ namespace Craft.Net.TerrainGeneration.CoherentNoise.Generator
 
 			return valueInterpolator.Interpolate(v1, v2, fractionalX);
 		}
+
 		public double Get2D(double x, double y)
 		{
 			// Calculate integer coordinates
@@ -49,6 +50,7 @@ namespace Craft.Net.TerrainGeneration.CoherentNoise.Generator
 			// Interpolate Y
 			return valueInterpolator.Interpolate(i1, i2, fractionalY);
 		}
+
 		public double Get3D(double x, double y, double z)
 		{
 			// Calculate integer coordinates

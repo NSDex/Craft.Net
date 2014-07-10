@@ -38,6 +38,7 @@ namespace Craft.Net.TerrainGeneration.CoherentNoise.Modifier
 			}
 			return total;
 		}
+
 		public double Get2D(double x, double y)
 		{
 			double total = 0;
@@ -52,6 +53,7 @@ namespace Craft.Net.TerrainGeneration.CoherentNoise.Modifier
 			}
 			return total;
 		}
+
 		public double Get3D(double x, double y, double z)
 		{
 			double total = 0;

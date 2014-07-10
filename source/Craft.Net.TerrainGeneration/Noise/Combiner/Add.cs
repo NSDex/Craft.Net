@@ -1,4 +1,5 @@
 using System;
+using Craft.Net.TerrainGeneration.CoherentNoise.Generator;
 
 namespace Craft.Net.TerrainGeneration.CoherentNoise.Combiner
 {
@@ -13,6 +14,11 @@ namespace Craft.Net.TerrainGeneration.CoherentNoise.Combiner
         {
             this.left = left;
             this.right = right;
+        }
+        public Add(INoiseProvider source, double value)
+        {
+            this.left = source;
+            this.right = new ConstNoise(value);
         }
 
         public double Get1D(double x)

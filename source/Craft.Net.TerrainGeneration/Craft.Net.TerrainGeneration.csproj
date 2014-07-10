@@ -10,8 +10,6 @@
     <RootNamespace>Craft.Net.TerrainGeneration</RootNamespace>
     <AssemblyName>Craft.Net.TerrainGeneration</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <ProductVersion>10.0.0</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -63,6 +61,9 @@
     <Compile Include="Noise\Generator\CellNoise.cs" />
     <Compile Include="Noise\Generator\VoronoiNoise.cs" />
     <Compile Include="Noise\Transform\Scale.cs" />
+    <Compile Include="DexsGenerator\World\WorldGenerator.cs" />
+    <Compile Include="DexsGenerator\WorldOptions.cs" />
+    <Compile Include="Noise\Generator\ValueNoise.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Craft.Net.Common\Craft.Net.Common.csproj">
@@ -97,5 +98,6 @@
     <Folder Include="Noise\Modifier\" />
     <Folder Include="Noise\Combiner\" />
     <Folder Include="Noise\Transform\" />
+    <Folder Include="DexsGenerator\World\" />
   </ItemGroup>
 </Project>
